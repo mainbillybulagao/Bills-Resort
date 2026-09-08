@@ -1,0 +1,2484 @@
+
+
+:root {
+
+    /* COLORS */
+    --bg-color: #dce9e9;
+    --primary-color: #17606b;
+    --primary-dark: #124d57;
+    --text-color: #111111;
+    --border-color: #172f34;
+    --white: #ffffff;
+
+
+    /* FONTS */
+    --font-heading: 'Lora', serif;
+    --font-body: 'Montserrat', sans-serif;
+
+
+    /* HEADER */
+    --header-height: 122px;
+
+
+    /* HERO */
+    --hero-min-height: 580px;
+
+
+    /* SPACING */
+    --header-padding: 42px;
+}
+
+
+/* =========================================================
+   GENERAL
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--primary-color);
+
+    font-family: var(--font-body);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+   width: 100%;
+    height: var(--header-height);
+
+    background: var(--bg-color);
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 var(--header-padding);
+
+    border-bottom: 2px solid var(--primary-dark);
+
+    position: relative;
+    z-index: 10;
+}
+
+ 
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo-box {
+
+    width: 300px;
+
+    display: flex;
+    align-items: center;
+}
+
+.logo-box img {
+
+    width: 210px;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar {
+
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+.navbar a {
+
+    position: relative;
+
+    text-decoration: none;
+
+    color: var(--text-color);
+
+    font-family: var(--font-body);
+
+    font-size: 18px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+}
+
+
+/* NAVIGATION HOVER */
+
+.navbar a:hover {
+    color: var(--primary-color);
+}
+
+
+
+/* =========================================================
+   BOOK NOW BUTTON
+   ========================================================= */
+
+.navbar .book-btn {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 171px;
+    height: 58px;
+
+    margin-left: -2px;
+
+    border-radius: 18px;
+
+    background: var(--primary-color);
+
+    color: var(--white);
+
+    font-family: var(--font-body);
+
+    font-size: 18px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.navbar .book-btn:hover {
+
+    background: var(--primary-dark);
+
+    color: var(--white);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+
+    width: 100%;
+
+    min-height: var(--hero-min-height);
+
+    background: var(--bg-color);
+
+    display: flex;
+    align-items: center;
+
+    padding: 18px 60px 60px 0;
+}
+
+
+/* =========================================================
+   HERO LEFT SIDE
+   ========================================================= */
+
+.hero-visual {
+
+    width: 55%;
+
+    min-height: 520px;
+
+    position: relative;
+
+    overflow: visible;
+    background-image: url("../images/background.jpg");
+
+  
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+
+/* =========================================================
+   SMALL IMAGE
+   ========================================================= */
+
+.hero-image {
+
+    position: absolute;
+
+    z-index: 2;
+
+    width: 570px;
+    height: 430px;
+
+    top: 50px;
+    left: 100px;
+    
+
+    background: var(--white);
+
+    padding: 0;
+}
+
+.hero-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =========================================================
+   HERO RIGHT SIDE
+   ========================================================= */
+
+.hero-content {
+
+    width: 45%;
+
+    padding-left: 80px;
+    padding-right: 45px;
+
+    margin-top: -5px;
+    text-align: center;
+}
+
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.hero-content h1 {
+
+    color: var(--primary-color);
+
+    font-family: var(--font-heading);
+
+    font-size: 43px;
+
+    font-weight: 700;
+
+    line-height: 1.15;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   LOCATION
+   ========================================================= */
+
+.hero-content h3 {
+
+    color: var(--primary-color);
+
+    font-family: var(--font-heading);
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    margin-bottom: 42px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.hero-content p {
+
+    color: var(--primary-color);
+
+    font-family: var(--font-heading);
+
+    font-size: 25px;
+
+    font-weight: 600;
+
+    font-style: italic;
+
+    line-height: 1.28;
+
+    max-width: 530px;
+}
+
+
+/* =========================================================
+   15. ABOUT SECTION
+   ========================================================= */
+
+.about {
+    width: 100%;
+
+
+    /* EDIT HERE: About section height */
+    height: 735px;
+    border-top: 2px solid var(--primary-dark);
+    
+
+    display: flex;
+    align-items: center;
+
+    /* EDIT HERE:
+       top right bottom left */
+    padding: 60px 160px 50px 160px;
+}
+
+
+
+/* =========================================================
+   16. ABOUT TEXT
+   ========================================================= */
+
+.about-content {
+    /* EDIT HERE: Text section width */
+    width: 60%;
+    height: auto;
+
+    padding-left: 0;
+
+    /* EDIT HERE: Space between text and image */
+    padding-right: 80px;
+}
+
+
+/* About heading */
+.about-content h2 {
+    /* EDIT HERE: Space below heading */
+    margin-bottom: 35px;
+
+    color: #165565;
+
+    font-family: "Montserrat", sans-serif;
+
+    /* EDIT HERE: Heading size */
+    font-size: 43px;
+    text-align: left;
+
+    font-weight: 600;
+}
+
+
+/* About paragraph */
+.about-content p {
+    /* EDIT HERE: Paragraph width */
+    width: 430px;
+
+    /* EDIT HERE: Space below paragraph */
+    margin-bottom: 45px;
+
+    color: #164f5d;
+
+    font-family: "Lora", serif;
+
+    /* EDIT HERE: Paragraph size */
+    font-size: 24px;
+
+    font-weight: 500;
+    font-style: italic;
+
+    /* EDIT HERE: Line spacing */
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   17. ABOUT IMAGE
+   ========================================================= */
+
+.about-image {
+    width: 100%;
+    height: 600px;
+
+    overflow: visible;
+
+    margin-right: -150px;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+/* =========================================================
+   18. GENERAL BUTTON
+   ========================================================= */
+
+.main-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    /* EDIT HERE: Minimum button width */
+    min-width: 205px;
+
+    /* EDIT HERE: Button height */
+    height: 55px;
+
+    /* EDIT HERE: Space inside button */
+    padding: 0 25px;
+
+    /* EDIT HERE: Button corner roundness */
+    border-radius: 17px;
+
+    /* EDIT HERE: Button background */
+    background-color: #165565;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: "Montserrat", sans-serif;
+
+    /* EDIT HERE: Button text size */
+    font-size: 17px;
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+
+/* Button hover */
+.main-btn:hover {
+    /* EDIT HERE: Hover color */
+    background-color: #103f4b;
+}
+
+/* =========================================================
+   19. ROOMS & AMENITIES
+   ========================================================= */
+
+.rooms {
+    width: 100%;
+
+    /* EDIT HERE: Rooms section height */
+    height: 790px;
+    border-top: 2px solid var(--primary-color);
+   
+    border-bottom: 2px solid var(--primary-color);
+    
+
+    /* EDIT HERE: Section padding */
+    padding: 65px 65px 50px 65px;
+    margin-bottom: 30px;
+    margin-top: -5px;
+}
+
+
+/* Rooms heading */
+.rooms h2 {
+    /* EDIT HERE: Space below heading */
+    margin-bottom: 45px;
+
+    color: #165565;
+
+    font-family: "Montserrat", sans-serif;
+
+    /* EDIT HERE: Heading size */
+    font-size: 36px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   20. ROOMS GRID
+   ========================================================= */
+
+.rooms-grid {
+    width: 100%;
+
+    display: grid;
+
+    /* EDIT HERE:
+       2 columns = 2 items per row
+       1 column = 1 item per row */
+    grid-template-columns: 1fr 1fr;
+
+    /* EDIT HERE: Space between columns */
+    column-gap: 90px;
+
+    /* EDIT HERE: Space between rows */
+    row-gap: 45px;
+}
+
+
+/* =========================================================
+   21. EACH ROOM ITEM
+   ========================================================= */
+
+.room-item {
+    width: 100%;
+
+    /* EDIT HERE: Room item height */
+    height: 205px;
+
+    display: flex;
+
+    align-items: flex-start;
+}
+
+
+/* =========================================================
+   22. ROOM IMAGE
+   ========================================================= */
+
+.room-item img {
+    /* EDIT HERE: Room image width */
+    width: 350px;
+
+    /* EDIT HERE: Room image height */
+    height: 200px;
+
+    /* Prevents image from shrinking */
+    flex-shrink: 0;
+
+    /* EDIT HERE: Image cropping */
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   23. ROOM TEXT
+   ========================================================= */
+
+.room-text {
+    /* EDIT HERE: Distance between image and text */
+    padding-left: 35px;
+
+    /* EDIT HERE: Move text DOWN */
+    padding-top: 5px;
+}
+
+
+/* Room title
+   Currently hidden */
+.room-text h3 {
+    display: none;
+}
+
+
+/* Room description */
+.room-text p {
+    color: #164f5d;
+
+    font-family: "Lora", serif;
+
+    /* EDIT HERE: Room description size */
+    font-size: 29px;
+
+    font-weight: 500;
+    font-style: italic;
+
+    /* EDIT HERE: Line spacing */
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   24. SHOW MORE BUTTON
+   ========================================================= */
+
+.rooms-btn {
+    /* EDIT HERE: Distance from room grid */
+    margin-top: 55px;
+
+    min-width: 175px;
+
+    height: 55px;
+
+    font-size: 16px;
+}
+
+/* =========================================================
+   25. GALLERY
+   ========================================================= */
+
+.gallery {
+    width: 100%;
+
+    /* EDIT HERE: Gallery height */
+    height: 760px;
+     
+   
+
+    /* EDIT HERE: Gallery inside spacing */
+    padding: 35px 60px 50px 60px;
+
+    /* EDIT HERE: Gallery background */
+    background-color: #4b808b;
+
+    /* EDIT HERE: Gallery corner roundness */
+    border-radius: 20px;
+
+    color: white;
+    border-top: 2px solid var(--primary-color);
+}
+
+
+/* =========================================================
+   26. GALLERY TITLE
+   ========================================================= */
+
+.gallery h2 {
+    /* EDIT HERE: Space below gallery title */
+    margin-bottom: 25px;
+
+    color: white;
+
+    font-family: "Montserrat", sans-serif;
+
+    /* EDIT HERE: Gallery title size */
+    font-size: 35px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   27. GALLERY GRID
+   ========================================================= */
+
+.gallery-grid {
+    width: 100%;
+
+    display: grid;
+
+    /* EDIT HERE:
+       3 columns = 3 images per row
+       2 columns = 2 images per row
+       1 column = 1 image per row */
+    grid-template-columns: repeat(3, 1fr);
+
+    /* EDIT HERE: Space between gallery images */
+    gap: 30px;
+}
+
+
+/* =========================================================
+   28. GALLERY IMAGES
+   ========================================================= */
+
+.gallery-grid img {
+    width: 100%;
+
+    /* EDIT HERE: Gallery image height */
+    height: 250px;
+
+    /* EDIT HERE: Image cropping */
+    object-fit: cover;
+
+    display: block;
+
+    /* Makes image corners slightly rounded */
+    border-radius: 8px;
+
+    /* EDIT HERE: Change to 0 for square corners */
+}
+
+
+/* =========================================================
+   29. GALLERY BUTTON
+   ========================================================= */
+
+.gallery-btn {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    /* EDIT HERE: Button width */
+    width: 205px;
+
+    /* EDIT HERE: Button height */
+    height: 55px;
+
+    /* Centers button */
+    margin: 30px auto 0;
+
+    background-color: #165565;
+
+    color: white;
+
+    /* EDIT HERE: Button roundness */
+    border-radius: 17px;
+
+    text-decoration: none;
+
+    font-family: "Montserrat", sans-serif;
+
+    /* EDIT HERE: Text size */
+    font-size: 16px;
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+
+/* Gallery button hover */
+.gallery-btn:hover {
+    /* EDIT HERE: Hover background */
+    background-color: #103f4b;
+}
+
+
+
+
+/* =========================================================
+   30. CONTACT SECTION
+   ========================================================= */
+
+.contact {
+    width: 100%;
+
+    height: 550px;
+    margin-top: 30px;
+    border-top:solid 2px ;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 50px;
+
+    padding: 60px 120px;
+}
+
+
+/* =========================================================
+   31. CONTACT FORM SIDE
+   ========================================================= */
+
+.contact-form {
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 0 60px;
+}
+
+
+/* Contact form heading */
+
+.contact-form h2 {
+    margin-bottom: 30px;
+
+    color: #165565;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 35px;
+
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   32. FORM
+   ========================================================= */
+
+.contact-form form {
+    width: 450px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   33. INPUTS AND TEXTAREA
+   ========================================================= */
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+
+    border: 2px solid #165565;
+
+    background-color: transparent;
+
+    outline: none;
+
+    color: #164f5d;
+
+    font-family: "Lora", serif;
+
+    font-size: 18px;
+
+    font-style: italic;
+}
+
+
+/* Input height */
+
+.contact-form input {
+    height: 50px;
+
+    padding: 0 15px;
+
+    border-radius: 10px;
+}
+
+
+/* Message box */
+
+.contact-form textarea {
+    height: 150px;
+
+    padding: 12px 15px;
+
+    resize: none;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   34. INPUT PLACEHOLDER
+   ========================================================= */
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+
+    color: #111;
+
+    font-family: "Lora", serif;
+
+    font-style: italic;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   35. SEND BUTTON
+   ========================================================= */
+
+.contact-form button {
+
+    width: 190px;
+
+    height: 48px;
+
+    margin: 0 auto;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background-color: #165565;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+
+/* Send button hover */
+
+.contact-form button:hover {
+
+    background-color: #103f4b;
+}
+
+
+/* =========================================================
+   30. CONTACT SECTION
+   ========================================================= */
+
+.contact {
+    width: 100%;
+
+    height: 550px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 50px;
+
+    padding: 60px 120px;
+}
+
+
+/* =========================================================
+   31. CONTACT FORM SIDE
+   ========================================================= */
+
+.contact-form {
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 0 60px;
+}
+
+
+/* Contact form heading */
+
+.contact-form h2 {
+    margin-bottom: 30px;
+
+    color: #165565;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 35px;
+
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   32. FORM
+   ========================================================= */
+
+.contact-form form {
+    width: 450px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   33. INPUTS AND TEXTAREA
+   ========================================================= */
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+
+    border: 2px solid #165565;
+
+    background-color: transparent;
+
+    outline: none;
+
+    color: #164f5d;
+
+    font-family: "Lora", serif;
+
+    font-size: 18px;
+
+    font-style: italic;
+}
+
+
+/* Input height */
+
+.contact-form input {
+    height: 50px;
+
+    padding: 0 15px;
+
+    border-radius: 10px;
+}
+
+
+/* Message box */
+
+.contact-form textarea {
+    height: 150px;
+
+    padding: 12px 15px;
+
+    resize: none;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   34. INPUT PLACEHOLDER
+   ========================================================= */
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+
+    color: #111;
+
+    font-family: "Lora", serif;
+
+    font-style: italic;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   35. SEND BUTTON
+   ========================================================= */
+
+.contact-form button {
+
+    width: 190px;
+
+    height: 48px;
+
+    margin: 0 auto;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background-color: #165565;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+
+/* Send button hover */
+
+.contact-form button:hover {
+
+    background-color: #103f4b;
+}
+
+
+/* =========================================================
+   36. CONTACT INFORMATION
+   ========================================================= */
+
+.contact-info {
+    width: 50%;
+    margin-top: -30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+    
+
+    padding: 0 60px;
+}
+
+
+/* Contact information title */
+
+.contact-info h2 {
+
+    margin-bottom: 8px;
+
+    color: #165565;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 35px;
+
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* Contact subtitle */
+
+.contact-info h3 {
+
+    margin-bottom: 22px;
+
+    color: #164f5d;
+
+    font-family: "Lora", serif;
+
+    font-size: 24px;
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   CONTACT DESCRIPTION
+   ========================================================= */
+
+.contact-info > p {
+
+    width: 480px;
+
+    margin-bottom: 40px;
+
+    color: #111;
+
+    font-family: "Lora", serif;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    font-style: italic;
+
+    line-height: 1.4;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   37. CONTACT INFORMATION ITEMS
+   ========================================================= */
+
+.info-item {
+
+    width: 400px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    margin-bottom: 20px;
+
+    color: #111;
+
+    font-family: "Lora", serif;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    font-style: italic;
+}
+
+
+/* Contact icons */
+
+.info-item .icon {
+
+    width: 45px;
+
+    margin-right: 20px;
+
+    color: #111;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 28px;
+
+    font-style: normal;
+
+    text-align: center;
+
+    flex-shrink: 0;
+}
+/* =========================================================
+   38. FOOTER
+   ========================================================= */
+
+.footer {
+
+    width: 100%;
+
+    /* FOOTER HEIGHT */
+    height: 400px;
+
+    /* REFERENCE IMAGE COLOR */
+    background-color: #a3bbbf;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    /* TOP CORNERS LIKE THE REFERENCE */
+    border-radius: 55px 55px 0 0;
+
+    border-top: 2px solid var(--primary-color);
+
+    /* FOOTER SPACING */
+    padding: 55px 100px;
+
+    /* REMOVE THE NEGATIVE MARGIN */
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   39. FOOTER BRAND
+   ========================================================= */
+
+.footer-brand {
+
+    width: 50%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+    position: relative;
+    left: 100px;
+}
+
+
+/* =========================================================
+   FOOTER LOGO
+   ========================================================= */
+
+.footer-logo {
+
+    margin-bottom: 10px;
+}
+
+
+.footer-logo img {
+
+    width: 260px;
+
+    height: auto;
+
+    display: block;
+}
+
+
+/* =========================================================
+   FOOTER LOCATION
+   ========================================================= */
+
+.footer-location {
+
+    color: #111111;
+
+    font-family: "Lora", serif;
+
+    font-size: 25px;
+
+    font-weight: 600;
+
+    font-style: italic;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   40. SOCIAL MEDIA
+   ========================================================= */
+
+.social {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   SOCIAL ITEM
+   ========================================================= */
+
+.social-item {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    min-width: 390px;
+}
+
+
+/* =========================================================
+   SOCIAL ICON
+   ========================================================= */
+
+.social-icon {
+
+    width: 62px;
+
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: #000000;
+
+    color: #ffffff;
+
+    border: 2px solid #ffffff;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 31px;
+
+    font-weight: 600;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   SOCIAL NAME
+   ========================================================= */
+
+.social-name {
+
+    margin-left: 30px;
+
+    color: #111111;
+
+    font-family: "Lora", serif;
+
+    font-size: 25px;
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   SOCIAL HOVER
+   ========================================================= */
+
+.social-item:hover .social-icon {
+
+    background-color: var(--primary-color);
+
+    transform: translateY(-2px);
+}
+
+
+.social-item:hover .social-name {
+
+    color: var(--primary-color);
+}
+
+
+.social-icon,
+.social-name {
+
+    transition: 0.3s ease;
+}
+
+
+/* =========================================================
+   FOOTER COPYRIGHT
+   ========================================================= */
+
+.footer-brand .copyright-text {
+
+    color: #111111;
+
+    font-family: "Lora", serif;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   41. FOOTER VERTICAL LINE
+   ========================================================= */
+
+.footer-line {
+
+    width: 3px;
+
+    height: 260px;
+
+    background-color: var(--primary-color);
+
+    flex-shrink: 0;
+
+    margin: 0 100px;
+}
+
+
+/* =========================================================
+   42. QUICK LINKS
+   ========================================================= */
+
+.quicklinks {
+
+    width: 50%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   QUICK LINKS TITLE
+   ========================================================= */
+
+.quicklinks h3 {
+
+    color: #111111;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 37px;
+
+    font-weight: 500;
+
+    margin-bottom: 20px;
+
+    text-align: left;
+
+    padding-bottom: 12px;
+
+    border-bottom: 2px solid var(--primary-color);
+}
+
+
+/* =========================================================
+   QUICK LINKS
+   ========================================================= */
+
+.quicklinks a {
+
+    color: #111111;
+
+    font-family: "Lora", serif;
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+    margin-bottom: 12px;
+
+    transition: 0.3s ease;
+}
+
+
+/* =========================================================
+   QUICK LINKS HOVER
+   ========================================================= */
+
+.quicklinks a:hover {
+
+    color: var(--primary-color);
+
+    transform: translateX(7px);
+}
+
+
+/* =========================================================
+   43. BOTTOM FOOTER
+   ========================================================= */
+
+.bottom-footer {
+
+    width: 100%;
+
+    min-height: 85px;
+
+    background-color: #a3bbbf;
+
+    border-top: 3px solid var(--primary-color);
+
+    color: #111111;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 20px 30px;
+
+    font-family: "Lora", serif;
+
+    font-size: 22px;
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    letter-spacing: 0.3px;
+}
+/* =========================================================
+   REGISTER PAGE
+   ========================================================= */
+
+.register-container {
+    width: 450px;
+    margin: 60px auto;
+    padding: 40px;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.register-container h1 {
+    text-align: center;
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+    margin-bottom: 10px;
+}
+
+.register-container > p {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 25px;
+}
+
+.register-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-container label {
+    margin-bottom: 7px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.register-container input {
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 18px;
+    border: 1px solid #b5c9cc;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 14px;
+}
+
+.register-container input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.register-container button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.register-container button:hover {
+    background-color: var(--primary-dark);
+}
+
+.register-container a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-container a:hover {
+    text-decoration: underline;
+}
+
+
+.register-header {
+    width: 100%;
+    padding-top: 35px;
+    padding-bottom: -5px;
+    text-align: center;
+    background-color: var(--bg-color);
+}
+
+.register-header img {
+    width: 290px;
+    height: auto;
+    display: inline-block;
+}
+
+
+
+/* =========================================================
+   ROOMS PAGE
+   ========================================================= */
+
+.rooms-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 60px auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h1 {
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    font-family: var(--font-body);
+    color: var(--text-color);
+}
+
+.rooms-page-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    width: 100%;
+    align-items: stretch;
+}
+
+.room-card {
+    background-color: var(--white);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+    display: flex;
+    flex-direction: column;
+}
+
+.room-image {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.room-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.room-info {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.room-info h2 {
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+    margin-bottom: 12px;
+}
+
+.room-info p {
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.room-capacity {
+    font-weight: 600;
+}
+
+.room-price {
+    color: var(--primary-dark);
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.room-price span {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.room-info .main-btn {
+    display: inline-block;
+    text-align: center;
+    width: auto;
+    padding: 12px 25px;
+    margin-top: auto;
+    align-self: flex-start;
+    text-decoration: none;
+}
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .rooms-page-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h1 {
+        font-size: 30px;
+    }
+
+    .room-image {
+        height: 230px;
+    }
+
+}
+
+
+/* =========================================================
+   BOOKING PAGE
+   ========================================================= */
+
+.register-container select {
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 18px;
+    border: 1px solid #b5c9cc;
+    border-radius: 8px;
+    background-color: var(--white);
+    font-family: var(--font-body);
+    font-size: 14px;
+}
+
+.register-container select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+
+/* =========================================================
+   MY BOOKINGS PAGE
+   ========================================================= */
+
+.my-bookings {
+    width: 100%;
+    min-height: 700px;
+    padding: 100px 8%;
+    background-color: var(--bg-color);
+}
+
+
+/* =========================================================
+   MY BOOKINGS HEADER
+   ========================================================= */
+
+.my-bookings-header {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+
+.my-bookings-header h1 {
+    margin-bottom: 12px;
+
+    color: var(--primary-color);
+
+    font-family: var(--font-heading);
+
+    font-size: 48px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.my-bookings-header p {
+    margin: 0;
+
+    color: var(--text-color);
+
+    font-family: var(--font-body);
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   NO BOOKINGS
+   ========================================================= */
+
+.no-bookings {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    padding: 60px 40px;
+
+    background-color: var(--white);
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+.no-bookings h2 {
+    margin-bottom: 15px;
+
+    color: var(--primary-color);
+
+    font-family: var(--font-heading);
+
+    font-size: 30px;
+}
+
+
+.no-bookings p {
+    margin-bottom: 30px;
+
+    color: #555;
+
+    font-family: var(--font-body);
+
+    font-size: 15px;
+}
+
+
+.no-bookings .book-btn {
+    display: inline-block;
+
+    padding: 14px 28px;
+
+    background-color: var(--primary-color);
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-family: var(--font-body);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    border-radius: 5px;
+
+    transition: 0.3s ease;
+}
+
+
+.no-bookings .book-btn:hover {
+    background-color: var(--primary-dark);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   BOOKINGS CONTAINER
+   ========================================================= */
+
+.bookings-container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 35px;
+}
+
+
+/* =========================================================
+   BOOKING CARD
+   ========================================================= */
+
+.booking-card {
+    width: 100%;
+
+    display: flex;
+
+    background-color: var(--white);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid rgba(23, 96, 107, 0.12);
+
+    transition: 0.3s ease;
+}
+
+
+.booking-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   BOOKING IMAGE
+   ========================================================= */
+
+.booking-image {
+    width: 45%;
+
+    min-height: 330px;
+
+    overflow: hidden;
+}
+
+
+.booking-image img {
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 330px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: 0.4s ease;
+}
+
+
+.booking-card:hover .booking-image img {
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   BOOKING INFORMATION
+   ========================================================= */
+
+.booking-info {
+    width: 55%;
+
+    padding: 40px 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.booking-info h2 {
+    margin-bottom: 25px;
+
+    color: var(--primary-color);
+
+    font-family: var(--font-heading);
+
+    font-size: 32px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   BOOKING DETAILS
+   ========================================================= */
+
+.booking-info p {
+    margin: 7px 0;
+
+    color: var(--text-color);
+
+    font-family: var(--font-body);
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+.booking-info strong {
+    color: var(--primary-color);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   BOOKING STATUS
+   ========================================================= */
+
+.booking-status {
+    display: inline-block;
+
+    margin-left: 8px;
+
+    padding: 6px 14px;
+
+    background-color: #e2f1f1;
+
+    color: var(--primary-color);
+
+    border-radius: 20px;
+
+    font-family: var(--font-body);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   HEADER FOR MY BOOKINGS
+   ========================================================= */
+
+.my-bookings .header {
+    position: relative;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .my-bookings {
+        padding: 80px 5%;
+    }
+
+
+    .my-bookings-header h1 {
+        font-size: 40px;
+    }
+
+
+    .booking-card {
+        flex-direction: column;
+    }
+
+
+    .booking-image {
+        width: 100%;
+
+        min-height: 300px;
+    }
+
+
+    .booking-image img {
+        min-height: 300px;
+    }
+
+
+    .booking-info {
+        width: 100%;
+
+        padding: 35px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .my-bookings {
+        padding: 60px 20px;
+    }
+
+
+    .my-bookings-header {
+        margin-bottom: 35px;
+    }
+
+
+    .my-bookings-header h1 {
+        font-size: 32px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .my-bookings-header p {
+        font-size: 14px;
+    }
+
+
+    .booking-card {
+        border-radius: 14px;
+    }
+
+
+    .booking-image {
+        min-height: 220px;
+    }
+
+
+    .booking-image img {
+        min-height: 220px;
+    }
+
+
+    .booking-info {
+        padding: 25px;
+    }
+
+
+    .booking-info h2 {
+        font-size: 26px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .booking-info p {
+        font-size: 14px;
+    }
+
+
+    .booking-status {
+        margin-top: 5px;
+
+        margin-left: 0;
+    }
+
+
+    .no-bookings {
+        padding: 45px 25px;
+    }
+
+
+    .no-bookings h2 {
+        font-size: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   MY BOOKINGS LOGOUT
+   ========================================================= */
+
+.my-bookings-logout {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 10px auto 70px;
+}
+
+
+.my-bookings-logout a {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 180px;
+
+    height: 52px;
+
+    background-color: var(--primary-color);
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-family: var(--font-body);
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    border-radius: 17px;
+
+    transition: 0.3s ease;
+}
+
+
+.my-bookings-logout a:hover {
+    background-color: var(--primary-dark);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .my-bookings-logout {
+        margin-bottom: 50px;
+    }
+
+    .my-bookings-logout a {
+        width: 160px;
+
+        height: 48px;
+
+        font-size: 14px;
+    }
+
+}
+
+
+
+/* =========================================================
+   WRITE A REVIEW BUTTON
+   ========================================================= */
+
+.booking-info .review-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 190px;
+    height: 50px;
+
+    margin-top: 20px;
+
+    background-color: #17606b;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    border-radius: 10px;
+
+    transition: 0.3s ease;
+}
+
+
+.booking-info .review-button:hover {
+    background-color: #124d57;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   BOOK ANOTHER ROOM BUTTON
+   ========================================================= */
+
+.book-another-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 210px;
+    height: 50px;
+
+    margin-top: 25px;
+
+    background-color: var(--primary-color);
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    border-radius: 10px;
+
+    transition: 0.3s ease;
+}
+
+
+.book-another-button:hover {
+
+    background-color: var(--primary-dark);
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================================================
+   REVIEW BUTTON
+   ========================================================= */
+
+.review-button {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 180px;
+    height: 45px;
+
+    margin-top: 20px;
+
+    background-color: var(--primary-color);
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    border-radius: 8px;
+
+    transition: 0.3s ease;
+}
+
+
+.review-button:hover {
+
+    background-color: var(--primary-dark);
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .book-another-button {
+
+        width: 190px;
+        height: 48px;
+
+        font-size: 13px;
+
+    }
+
+
+    .review-button {
+
+        width: 170px;
+        height: 43px;
+
+        font-size: 12px;
+
+    }
+
+}
