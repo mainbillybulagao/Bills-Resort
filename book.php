@@ -54,6 +54,17 @@ $success = "";
 
 
 /* =========================================================
+   FORM VALUES
+   ========================================================= */
+
+$room_name = "";
+
+$check_in = "";
+
+$check_out = "";
+
+
+/* =========================================================
    BOOKING FORM
    ========================================================= */
 
@@ -188,7 +199,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             if ($result) {
 
-                // Automatically go to My Bookings
                 header("Location: my-bookings.php");
                 exit();
 
@@ -214,6 +224,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -230,7 +241,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <link
         rel="stylesheet"
-        href="assets/css/style.css"
+        href="assets/css/style.css?v=10"
     >
 
 </head>
@@ -255,6 +266,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </a>
 
 </header>
+
 
 
 <!-- =========================================================
@@ -282,13 +294,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </p>
 
 
+
     <!-- =====================================================
          ERROR MESSAGE
          ===================================================== -->
 
     <?php if (!empty($error)): ?>
 
-        <p style="color: red;">
+        <p class="form-error">
 
             <?php
             echo htmlspecialchars($error);
@@ -298,22 +311,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <?php endif; ?>
 
-
-    <!-- =====================================================
-         SUCCESS MESSAGE
-         ===================================================== -->
-
-    <?php if (!empty($success)): ?>
-
-        <p style="color: green;">
-
-            <?php
-            echo htmlspecialchars($success);
-            ?>
-
-        </p>
-
-    <?php endif; ?>
 
 
     <!-- =====================================================
@@ -330,13 +327,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
              ROOM TYPE
              ================================================= -->
 
-        <label>
+        <label for="room_name">
+
             Select Room Type
+
         </label>
 
 
         <select
             name="room_name"
+            id="room_name"
             required
         >
 
@@ -370,6 +370,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             $room["room_name"]
                         );
                         ?>"
+                        <?php
+                        if (
+                            $room_name === $room["room_name"]
+                        ) {
+                            echo "selected";
+                        }
+                        ?>
                     >
 
                         <?php
@@ -387,7 +394,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         );
                         ?>
 
-                        / night
+                        / night -
+
+                        <?php
+                        echo htmlspecialchars(
+                            $room["capacity"]
+                        );
+                        ?>
+
+                        guests
 
                     </option>
 
@@ -402,38 +417,89 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </select>
 
 
+
         <!-- =================================================
              CHECK-IN
              ================================================= -->
 
-        <label>
+        <label for="check_in">
+
             Check-in Date
+
         </label>
 
 
         <input
             type="date"
             name="check_in"
-            min="<?php echo date('Y-m-d'); ?>"
+            id="check_in"
+            value="<?php
+                echo htmlspecialchars(
+                    $check_in
+                );
+            ?>"
+            min="<?php
+                echo date("Y-m-d");
+            ?>"
             required
         >
+
 
 
         <!-- =================================================
              CHECK-OUT
              ================================================= -->
 
-        <label>
+        <label for="check_out">
+
             Check-out Date
+
         </label>
 
 
         <input
             type="date"
             name="check_out"
-            min="<?php echo date('Y-m-d'); ?>"
+            id="check_out"
+            value="<?php
+                echo htmlspecialchars(
+                    $check_out
+                );
+            ?>"
+            min="<?php
+                echo date("Y-m-d");
+            ?>"
             required
         >
+
+
+
+        <!-- =================================================
+             PAYMENT METHOD
+             ================================================= -->
+
+        <div class="booking-payment-info">
+
+            <h3>
+                Payment Method
+            </h3>
+
+
+            <div class="payment-method-name">
+
+                Pay at Resort
+
+            </div>
+
+
+            <p>
+
+                Payment will be made at the resort upon arrival.
+
+            </p>
+
+        </div>
+
 
 
         <!-- =================================================
@@ -450,11 +516,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </form>
 
 
+
     <!-- =====================================================
          BACK TO HOME
          ===================================================== -->
 
-    <p>
+    <p class="back-home">
 
         <a href="index.php">
 
