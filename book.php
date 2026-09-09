@@ -50,6 +50,8 @@ $rooms = $roomObject->getAll();
 
 $error = "";
 
+$success = "";
+
 
 /* =========================================================
    BOOKING FORM
@@ -74,9 +76,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
        ===================================================== */
 
     if (
-        $room_name === "" ||
-        $check_in === "" ||
-        $check_out === ""
+        empty($room_name) ||
+        empty($check_in) ||
+        empty($check_out)
     ) {
 
         $error = "Please complete all booking information.";
@@ -186,6 +188,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             if ($result) {
 
+                // Automatically go to My Bookings
                 header("Location: my-bookings.php");
                 exit();
 
@@ -227,7 +230,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <link
         rel="stylesheet"
-        href="assets/css/style.css?v=7"
+        href="assets/css/style.css"
     >
 
 </head>
@@ -252,7 +255,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </a>
 
 </header>
-
 
 
 <!-- =========================================================
@@ -280,62 +282,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </p>
 
 
-
-    <!-- =====================================================
-         ROOM PICTURES
-         ===================================================== -->
-
-    <div class="booking-room-images">
-
-
-        <!-- =================================================
-             DELUXE ROOM
-             ================================================= -->
-
-        <div class="booking-room-card">
-
-            <img
-                src="assets/images/room1.jpg"
-                alt="Deluxe Room"
-            >
-
-            <h3>
-                Deluxe Room
-            </h3>
-
-        </div>
-
-
-
-        <!-- =================================================
-             FAMILY ROOM
-             ================================================= -->
-
-        <div class="booking-room-card">
-
-            <img
-                src="assets/images/room2.jpg"
-                alt="Family Room"
-            >
-
-            <h3>
-                Family Room
-            </h3>
-
-        </div>
-
-
-    </div>
-
-
-
     <!-- =====================================================
          ERROR MESSAGE
          ===================================================== -->
 
     <?php if (!empty($error)): ?>
 
-        <p class="form-error">
+        <p style="color: red;">
 
             <?php
             echo htmlspecialchars($error);
@@ -345,6 +298,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <?php endif; ?>
 
+
+    <!-- =====================================================
+         SUCCESS MESSAGE
+         ===================================================== -->
+
+    <?php if (!empty($success)): ?>
+
+        <p style="color: green;">
+
+            <?php
+            echo htmlspecialchars($success);
+            ?>
+
+        </p>
+
+    <?php endif; ?>
 
 
     <!-- =====================================================
@@ -361,14 +330,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
              ROOM TYPE
              ================================================= -->
 
-        <label for="room_name">
+        <label>
             Select Room Type
         </label>
 
 
         <select
             name="room_name"
-            id="room_name"
             required
         >
 
@@ -402,13 +370,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             $room["room_name"]
                         );
                         ?>"
-                        <?php
-                        if (
-                            $room_name === $room["room_name"]
-                        ) {
-                            echo "selected";
-                        }
-                        ?>
                     >
 
                         <?php
@@ -441,12 +402,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </select>
 
 
-
         <!-- =================================================
              CHECK-IN
              ================================================= -->
 
-        <label for="check_in">
+        <label>
             Check-in Date
         </label>
 
@@ -454,25 +414,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <input
             type="date"
             name="check_in"
-            id="check_in"
-            value="<?php
-                echo htmlspecialchars(
-                    $check_in ?? ""
-                );
-            ?>"
-            min="<?php
-                echo date("Y-m-d");
-            ?>"
+            min="<?php echo date('Y-m-d'); ?>"
             required
         >
-
 
 
         <!-- =================================================
              CHECK-OUT
              ================================================= -->
 
-        <label for="check_out">
+        <label>
             Check-out Date
         </label>
 
@@ -480,37 +431,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <input
             type="date"
             name="check_out"
-            id="check_out"
-            value="<?php
-                echo htmlspecialchars(
-                    $check_out ?? ""
-                );
-            ?>"
-            min="<?php
-                echo date("Y-m-d");
-            ?>"
+            min="<?php echo date('Y-m-d'); ?>"
             required
         >
-
-
-
-       <!-- =================================================
-     PAYMENT METHOD
-     ================================================= -->
-
-<div class="booking-payment-info">
-
-    <h3>Payment Method</h3>
-
-    <div class="payment-method-name">
-        Pay at Resort
-    </div>
-
-    <p>
-        Payment will be made at the resort upon arrival.
-    </p>
-
-</div>
 
 
         <!-- =================================================
@@ -527,12 +450,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </form>
 
 
-
     <!-- =====================================================
          BACK TO HOME
          ===================================================== -->
 
-    <p class="back-home">
+    <p>
 
         <a href="index.php">
 
