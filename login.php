@@ -30,7 +30,14 @@ $error = "";
 
 
 /* =========================================================
-   LOGIN FORM
+   FORM VALUE
+   ========================================================= */
+
+$login_value = "";
+
+
+/* =========================================================
+   LOGIN
    ========================================================= */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -40,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
        GET FORM VALUES SAFELY
        ===================================================== */
 
-    $email = trim($_POST["email"] ?? "");
+    $login_value = trim($_POST["login"] ?? "");
 
     $password = $_POST["password"] ?? "";
 
@@ -49,26 +56,41 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
        VALIDATION
        ===================================================== */
 
-    if (empty($email) || empty($password)) {
+    if ($login_value === "" || $password === "") {
 
-        $error = "Please enter your email and password.";
+        $error = "Please enter your email or username and password.";
 
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    }
 
-        $error = "Please enter a valid email address.";
 
-    } else {
+    /* =====================================================
+       CHECK CUSTOMER LOGIN
+       ===================================================== */
+
+    else {
+
+        /*
+         * First check if the credentials belong
+         * to a customer.
+         */
+
+        if (filter_var($login_value, FILTER_VALIDATE_EMAIL)) {
+
+            $loggedInCustomer = $customer->login(
+                $login_value,
+                $password
+            );
+
+        } else {
+
+            $loggedInCustomer = false;
+
+        }
 
 
         /* =================================================
-           CHECK LOGIN
+           CUSTOMER LOGIN SUCCESS
            ================================================= */
-
-        $loggedInCustomer = $customer->login(
-            $email,
-            $password
-        );
-
 
         if ($loggedInCustomer) {
 
@@ -81,7 +103,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
             /* =============================================
-               STORE CUSTOMER INFORMATION
+               REMOVE OLD ADMIN SESSION
+               ============================================= */
+
+            unset($_SESSION["admin_id"]);
+            unset($_SESSION["admin_username"]);
+
+
+            /* =============================================
+               CREATE CUSTOMER SESSION
                ============================================= */
 
             $_SESSION["customer_id"] =
@@ -98,17 +128,101 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
             /* =============================================
-               GO TO MY BOOKINGS
+               GO TO CUSTOMER PAGE
                ============================================= */
 
             header("Location: my-bookings.php");
 
             exit();
 
+        }
 
-        } else {
 
-            $error = "Invalid email or password.";
+        /* =================================================
+           CHECK ADMIN LOGIN
+           ================================================= */
+
+        else {
+
+            $query = "SELECT *
+                      FROM admins
+                      WHERE username = :username
+                      LIMIT 1";
+
+            $stmt = $db->prepare($query);
+
+            $stmt->bindParam(
+                ":username",
+                $login_value
+            );
+
+            $stmt->execute();
+
+            $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+            /* =============================================
+               ADMIN LOGIN SUCCESS
+               ============================================= */
+
+            if (
+                $admin &&
+                password_verify(
+                    $password,
+                    $admin["password"]
+                )
+            ) {
+
+
+                /* =========================================
+                   REGENERATE SESSION ID
+                   ========================================= */
+
+                session_regenerate_id(true);
+
+
+                /* =========================================
+                   REMOVE OLD CUSTOMER SESSION
+                   ========================================= */
+
+                unset($_SESSION["customer_id"]);
+                unset($_SESSION["customer_name"]);
+                unset($_SESSION["customer_email"]);
+
+
+                /* =========================================
+                   CREATE ADMIN SESSION
+                   ========================================= */
+
+                $_SESSION["admin_id"] =
+                    $admin["admin_id"];
+
+
+                $_SESSION["admin_username"] =
+                    $admin["username"];
+
+
+                /* =========================================
+                   GO TO ADMIN DASHBOARD
+                   ========================================= */
+
+                header("Location: admin/dashboard.php");
+
+                exit();
+
+            }
+
+
+            /* =============================================
+               INVALID LOGIN
+               ============================================= */
+
+            else {
+
+                $error =
+                    "Invalid email/username or password.";
+
+            }
 
         }
 
@@ -140,31 +254,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <link
         rel="stylesheet"
-        href="assets/css/style.css?v=4"
+        href="assets/css/style.css?v=5"
     >
 
 </head>
 
 
 <body>
-
-
-<!-- =========================================================
-     LOGO ABOVE LOGIN BOX
-     ========================================================= -->
-
-<header class="register-header">
-
-    <a href="index.php">
-
-        <img
-            src="assets/images/mainlogo.jpg"
-            alt="Bill's Resort Logo"
-        >
-
-    </a>
-
-</header>
 
 
 <!-- =========================================================
@@ -175,13 +271,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
     <h1>
-        Welcome Back
+        LOGIN
     </h1>
 
 
     <p>
-        Login to view your bookings.
+        Sign in to continue to Bill's Resort.
     </p>
+
 
 
     <!-- =====================================================
@@ -190,7 +287,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <?php if (!empty($error)): ?>
 
-        <p style="color: red;">
+        <p class="form-error">
 
             <?php
             echo htmlspecialchars($error);
@@ -199,6 +296,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </p>
 
     <?php endif; ?>
+
 
 
     <!-- =====================================================
@@ -211,23 +309,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     >
 
 
-        <!-- EMAIL -->
+        <!-- =================================================
+             EMAIL / USERNAME
+             ================================================= -->
 
-        <label for="email">
-            Email
+        <label for="login">
+            Email / Username
         </label>
 
 
         <input
-            type="email"
-            id="email"
-            name="email"
-            value="<?php echo htmlspecialchars($email ?? ""); ?>"
+            type="text"
+            id="login"
+            name="login"
+            value="<?php
+                echo htmlspecialchars($login_value);
+            ?>"
+            placeholder="Enter your email or username"
             required
         >
 
 
-        <!-- PASSWORD -->
+
+        <!-- =================================================
+             PASSWORD
+             ================================================= -->
 
         <label for="password">
             Password
@@ -238,11 +344,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             type="password"
             id="password"
             name="password"
+            placeholder="Enter your password"
             required
         >
 
 
-        <!-- LOGIN BUTTON -->
+
+        <!-- =================================================
+             LOGIN BUTTON
+             ================================================= -->
 
         <button type="submit">
             LOGIN
@@ -250,6 +360,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
     </form>
+
 
 
     <!-- =====================================================
@@ -267,6 +378,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </p>
 
 
+
     <!-- =====================================================
          BACK TO HOME
          ===================================================== -->
@@ -281,8 +393,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 </div>
-
-
-</body>
-
-</html>

@@ -2620,3 +2620,99 @@ body {
 
     text-align: center;
 }
+
+
+/* =========================================================
+   BOOKING STATUS MESSAGES
+   ========================================================= */
+
+.booking-confirmed-message,
+.booking-pending-message,
+.booking-cancelled-message {
+
+    margin-top: 15px;
+
+    padding: 15px 18px;
+
+    border-radius: 10px;
+
+    font-family: var(--font-body);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   CONFIRMED
+   ========================================================= */
+
+.booking-confirmed-message {
+
+    background-color: #e8f6ec;
+
+    border: 1px solid #7bbf8a;
+
+}
+
+
+.booking-confirmed-message strong {
+
+    color: #26733a;
+
+}
+
+
+/* =========================================================
+   PENDING
+   ========================================================= */
+
+.booking-pending-message {
+
+    background-color: #fff7df;
+
+    border: 1px solid #d9b95c;
+
+}
+
+
+.booking-pending-message strong {
+
+    color: #8a6a00;
+
+}
+
+
+/* =========================================================
+   CANCELLED
+   ========================================================= */
+
+.booking-cancelled-message {
+
+    background-color: #fbeaea;
+
+    border: 1px solid #d77a7a;
+
+}
+
+
+.booking-cancelled-message strong {
+
+    color: #a32929;
+
+}
+
+
+/* =========================================================
+   MESSAGE TEXT
+   ========================================================= */
+
+.booking-confirmed-message p,
+.booking-pending-message p,
+.booking-cancelled-message p {
+
+    margin: 5px 0 0 0;
+
+}

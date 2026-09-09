@@ -51,11 +51,17 @@ $bookings = $bookingObject->getCustomerBookings($customer_id);
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>My Bookings | Bill's Resort</title>
 
-    <link rel="stylesheet" href="assets/css/style.css?v=6">
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css?v=7"
+    >
 
 </head>
 
@@ -68,7 +74,6 @@ $bookings = $bookingObject->getCustomerBookings($customer_id);
      ========================================================= -->
 
 <header class="header">
-
 
     <div class="line"></div>
 
@@ -115,7 +120,6 @@ $bookings = $bookingObject->getCustomerBookings($customer_id);
 
     </nav>
 
-
 </header>
 
 
@@ -147,7 +151,10 @@ $bookings = $bookingObject->getCustomerBookings($customer_id);
 
         <!-- BOOK ANOTHER ROOM BUTTON -->
 
-        <a href="book.php" class="book-another-button">
+        <a
+            href="book.php"
+            class="book-another-button"
+        >
             BOOK ANOTHER ROOM
         </a>
 
@@ -175,7 +182,10 @@ $bookings = $bookingObject->getCustomerBookings($customer_id);
             </p>
 
 
-            <a href="book.php" class="book-btn">
+            <a
+                href="book.php"
+                class="book-btn"
+            >
 
                 BOOK A ROOM
 
@@ -298,7 +308,10 @@ $bookings = $bookingObject->getCustomerBookings($customer_id);
                                 Room Price:
                             </strong>
 
-                            ₱<?php echo number_format($booking["room_price"], 2); ?>
+                            ₱<?php echo number_format(
+                                $booking["room_price"],
+                                2
+                            ); ?>
 
                         </p>
 
@@ -312,7 +325,10 @@ $bookings = $bookingObject->getCustomerBookings($customer_id);
                                 Total Cost:
                             </strong>
 
-                            ₱<?php echo number_format($booking["total_cost"], 2); ?>
+                            ₱<?php echo number_format(
+                                $booking["total_cost"],
+                                2
+                            ); ?>
 
                         </p>
 
@@ -329,7 +345,11 @@ $bookings = $bookingObject->getCustomerBookings($customer_id);
 
                             <span class="booking-status">
 
-                                <?php echo htmlspecialchars($booking["status"]); ?>
+                                <?php
+                                echo htmlspecialchars(
+                                    $booking["status"]
+                                );
+                                ?>
 
                             </span>
 
@@ -337,7 +357,77 @@ $bookings = $bookingObject->getCustomerBookings($customer_id);
 
 
 
-                        <!-- WRITE A REVIEW BUTTON -->
+                        <!-- =================================================
+                             CONFIRMED MESSAGE
+                             ================================================= -->
+
+                        <?php if ($booking["status"] === "Confirmed"): ?>
+
+                            <div class="booking-confirmed-message">
+
+                                <strong>
+                                    Booking Confirmed!
+                                </strong>
+
+                                <p>
+                                    Your reservation is confirmed.
+                                    We look forward to welcoming you on
+
+                                    <?php
+                                    echo date(
+                                        "F, d, Y",
+                                        strtotime($booking["check_in"])
+                                    );
+                                    ?>.
+                                </p>
+
+                            </div>
+
+
+                        <!-- =================================================
+                             PENDING MESSAGE
+                             ================================================= -->
+
+                        <?php elseif ($booking["status"] === "Pending"): ?>
+
+                            <div class="booking-pending-message">
+
+                                <strong>
+                                    Booking Pending
+                                </strong>
+
+                                <p>
+                                    Your reservation is waiting for confirmation.
+                                </p>
+
+                            </div>
+
+
+                        <!-- =================================================
+                             CANCELLED MESSAGE
+                             ================================================= -->
+
+                        <?php elseif ($booking["status"] === "Cancelled"): ?>
+
+                            <div class="booking-cancelled-message">
+
+                                <strong>
+                                    Booking Cancelled
+                                </strong>
+
+                                <p>
+                                    This reservation has been cancelled.
+                                </p>
+
+                            </div>
+
+                        <?php endif; ?>
+
+
+
+                        <!-- =================================================
+                             WRITE A REVIEW BUTTON
+                             ================================================= -->
 
                         <?php if ($booking["status"] === "Confirmed"): ?>
 
@@ -391,9 +481,7 @@ $bookings = $bookingObject->getCustomerBookings($customer_id);
 <footer class="footer">
 
 
-    <!-- =====================================================
-         FOOTER BRAND
-         ===================================================== -->
+    <!-- FOOTER BRAND -->
 
     <div class="footer-brand">
 
@@ -421,9 +509,7 @@ $bookings = $bookingObject->getCustomerBookings($customer_id);
 
 
 
-        <!-- =================================================
-             SOCIAL MEDIA
-             ================================================= -->
+        <!-- SOCIAL MEDIA -->
 
         <div class="social">
 
@@ -468,17 +554,13 @@ $bookings = $bookingObject->getCustomerBookings($customer_id);
 
 
 
-    <!-- =====================================================
-         VERTICAL LINE
-         ===================================================== -->
+    <!-- VERTICAL LINE -->
 
     <div class="footer-line"></div>
 
 
 
-    <!-- =====================================================
-         QUICK LINKS
-         ===================================================== -->
+    <!-- QUICK LINKS -->
 
     <div class="quicklinks">
 

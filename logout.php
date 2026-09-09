@@ -2,14 +2,40 @@
 
 session_start();
 
-// Remove all session data
-session_unset();
+/* Remove customer session */
+unset($_SESSION["customer_id"]);
+unset($_SESSION["customer_name"]);
+unset($_SESSION["customer_email"]);
 
-// Destroy the session
+/* Remove admin session too */
+unset($_SESSION["admin_id"]);
+unset($_SESSION["admin_username"]);
+
+/* Destroy current session */
 session_destroy();
 
-// Return to homepage
-header("Location: index.php");
+/* Go to the single login page */
+header("Location: login.php");
+exit();
+
+?><?php
+
+session_start();
+
+/* Remove customer session */
+unset($_SESSION["customer_id"]);
+unset($_SESSION["customer_name"]);
+unset($_SESSION["customer_email"]);
+
+/* Remove admin session too */
+unset($_SESSION["admin_id"]);
+unset($_SESSION["admin_username"]);
+
+/* Destroy current session */
+session_destroy();
+
+/* Go to the single login page */
+header("Location: login.php");
 exit();
 
 ?>
